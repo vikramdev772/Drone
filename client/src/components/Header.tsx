@@ -1,28 +1,32 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Leaf, Search, Menu, X } from 'lucide-react';
+import React, { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Leaf, Search, Menu, X } from "lucide-react";
+import logo from "../assets/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  
+
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Products', path: '/products' },
-    { name: 'About Us', path: '/about' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'Contact', path: '/contact' },
+    { name: "Home", path: "/" },
+    { name: "Products", path: "/products" },
+    { name: "About Us", path: "/about" },
+    { name: "Blog", path: "/blog" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
     <header className="fixed w-full z-50 px-4 md:px-6 py-4 backdrop-blur-lg bg-white/10 border-b border-white/10">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
-        <Link 
-          to="/" 
-          className="flex items-center gap-2 group"
-        >
-          <Leaf className="w-8 h-8 text-green-500 transition-transform group-hover:rotate-12" />
+        <Link to="/" className="flex items-center gap-3 group">
+          <img
+            src={logo}
+            alt="AgroneX Logo"
+            className="h-8 w-auto object-contain"
+            width={50}
+            height={50}
+          />
           <span className="text-2xl font-bold bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent hover:from-green-400 hover:to-emerald-500 transition-all">
             AgroneX
           </span>
@@ -35,7 +39,7 @@ const Header = () => {
               key={item.path}
               to={item.path}
               className={`relative px-2 py-1 text-white/90 hover:text-white transition-colors group ${
-                location.pathname === item.path ? 'text-green-400' : ''
+                location.pathname === item.path ? "text-green-400" : ""
               }`}
             >
               <span>{item.name}</span>
@@ -53,11 +57,16 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden p-2 text-white/90 hover:text-white"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
-          {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {isMenuOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
         </button>
       </div>
 
@@ -69,7 +78,9 @@ const Header = () => {
               key={item.path}
               to={item.path}
               className={`block px-6 py-4 text-white/90 hover:text-white hover:bg-white/5 transition-colors ${
-                location.pathname === item.path ? 'text-green-400 bg-white/5' : ''
+                location.pathname === item.path
+                  ? "text-green-400 bg-white/5"
+                  : ""
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
