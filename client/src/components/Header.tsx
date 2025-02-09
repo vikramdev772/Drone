@@ -27,9 +27,7 @@ const Header = () => {
             width={50}
             height={50}
           />
-          <span className="text-2xl font-bold bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent hover:from-green-400 hover:to-emerald-500 transition-all">
-            AgroneX
-          </span>
+          <span className="text-green-400 font-medium text-xl">AgroneX</span>
         </Link>
 
         {/* Desktop Navigation */}

@@ -1,20 +1,21 @@
 import { FC } from "react";
-import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin, Leaf } from "lucide-react";
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const Footer: FC = () => {
   const socialLinks = [
     { icon: Facebook, href: "#", label: "Facebook" },
     { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" }
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
   ];
 
   const quickLinks = [
     { name: "Products", href: "/products" },
     { name: "Services", href: "/services" },
     { name: "Support", href: "/support" },
-    { name: "Career", href: "/career" }
+    { name: "Career", href: "/career" },
   ];
 
   return (
@@ -25,13 +26,13 @@ const Footer: FC = () => {
           {/* Brand Section */}
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2 group w-fit">
-              <Leaf className="w-8 h-8 text-green-500 transition-transform group-hover:rotate-12" />
+              <img src={logo} alt="AgroneX Logo" className="h-10" />
               <span className="text-2xl font-bold bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">
                 AgroneX
               </span>
             </Link>
             <p className="text-gray-400 leading-relaxed">
-              Pioneering sustainable agriculture through advanced drone solutions. 
+              Pioneering sustainable agriculture through advanced drone solutions.
               Made in India, innovating for global farming communities.
             </p>
           </div>
@@ -43,13 +44,17 @@ const Footer: FC = () => {
               <span className="absolute -bottom-2 left-0 w-12 h-1 bg-green-500 rounded-full"></span>
             </h3>
             <div className="space-y-4">
-              <a href="mailto:contact@agronex.com" 
-                className="flex items-center group hover:text-green-400 transition-colors">
+              <a
+                href="mailto:contact@agronex.com"
+                className="flex items-center group hover:text-green-400 transition-colors"
+              >
                 <Mail className="w-5 h-5 mr-3 text-green-500 group-hover:text-green-400" />
                 <span>contact@agronex.com</span>
               </a>
-              <a href="tel:+911234567890" 
-                className="flex items-center group hover:text-green-400 transition-colors">
+              <a
+                href="tel:+911234567890"
+                className="flex items-center group hover:text-green-400 transition-colors"
+              >
                 <Phone className="w-5 h-5 mr-3 text-green-500 group-hover:text-green-400" />
                 <span>+91 123 456 7890</span>
               </a>
@@ -69,7 +74,7 @@ const Footer: FC = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <Link 
+                  <Link
                     to={link.href}
                     className="group flex items-center hover:text-green-400 transition-colors"
                   >
@@ -124,8 +129,12 @@ const Footer: FC = () => {
               © {new Date().getFullYear()} AgroneX. All rights reserved.
             </p>
             <div className="flex gap-6 text-gray-400">
-              <Link to="/privacy" className="hover:text-green-400 transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="hover:text-green-400 transition-colors">Terms of Service</Link>
+              <Link to="/privacy" className="hover:text-green-400 transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="hover:text-green-400 transition-colors">
+                Terms of Service
+              </Link>
             </div>
           </div>
         </div>

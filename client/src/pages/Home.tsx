@@ -200,7 +200,7 @@ const Home: React.FC = () => {
       </section>
 
       <UseCases />
-      <Footer />
+      
     </div>
   );
 };
