@@ -124,19 +124,7 @@ const Dealershippage = () => {
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className="py-16 bg-gray-800/50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
-          <div className="text-gray-300">
-            <p className="mb-2">ARIES SOLUTIONS PRIVATE LIMITED</p>
-            <p className="mb-2">5-9-262/2/17/1, 2nd floor, Street No-1,</p>
-            <p className="mb-2">Rajiv Gandhi Nagar, I.E Kukatpally,</p>
-            <p className="mb-2">Hyderabad, Telangana, India- 500072</p>
-            <p className="mt-4">Phone: +918712226962</p>
-          </div>
-        </div>
-      </section>
+    
     </div>
   );
 };
