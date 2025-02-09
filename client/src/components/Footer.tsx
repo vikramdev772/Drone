@@ -28,7 +28,7 @@ const Footer: FC = () => {
             <Link to="/" className="flex items-center gap-2 group w-fit">
               <img src={logo} alt="AgroneX Logo" className="h-10" />
               <span className="text-2xl font-bold bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">
-                AgroneX
+                Aires
               </span>
             </Link>
             <p className="text-gray-400 leading-relaxed">
@@ -126,7 +126,7 @@ const Footer: FC = () => {
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400">
-              © {new Date().getFullYear()} AgroneX. All rights reserved.
+              © {new Date().getFullYear()} Aires. All rights reserved.
             </p>
             <div className="flex gap-6 text-gray-400">
               <Link to="/privacy" className="hover:text-green-400 transition-colors">

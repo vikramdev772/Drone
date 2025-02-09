@@ -28,7 +28,7 @@ const Header = () => {
             width={50}
             height={50}
           />
-          <span className="text-green-400 font-medium text-xl">AgroneX</span>
+          <span className="text-green-400 font-medium text-xl">Aries</span>
         </Link>
 
         {/* Desktop Navigation */}
