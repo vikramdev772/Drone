@@ -13,9 +13,9 @@ const Footer: FC = () => {
 
   const quickLinks = [
     { name: "Products", href: "/products" },
-    { name: "Services", href: "/services" },
-    { name: "Support", href: "/support" },
-    { name: "Career", href: "/career" },
+    { name: "About", href: "/about" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
