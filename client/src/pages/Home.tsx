@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, RotateCcw, Volume2, Volume1, VolumeX, ChevronDown } from 'lucide-react';
+import OurProducts from '../components/Ourproduct';
+import IndustryApplications from '../components/IndustryApplications';
 
 const VideoCard = ({ 
   title, 
@@ -12,12 +14,12 @@ const VideoCard = ({
   videoUrl?: string;
   className?: string;
 }) => (
-  <div className={`group bg-black/30 backdrop-blur-lg rounded-2xl overflow-hidden 
+  <div className={`group bg-black backdrop rounded-2xl overflow-hidden 
                    transform hover:scale-[1.02] transition-all duration-300 
                    border border-white/10 hover:border-green-500/30 
                    flex flex-col h-full ${className}`}>
     <div className="relative aspect-video">
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black " />
       <iframe 
         src={`https://www.youtube.com/embed/${videoUrl}`}
         className="absolute inset-0 w-full h-full"
@@ -33,25 +35,83 @@ const VideoCard = ({
   </div>
 );
 
+const BackgroundVideo = ({ isVisible }: { isVisible: boolean }) => {
+  const [windowSize, setWindowSize] = useState({
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      });
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const getScale = () => {
+    const aspectRatio = windowSize.width / windowSize.height;
+    if (aspectRatio < 1) { // Portrait
+      return 'scale(1.8)';
+    } else if (aspectRatio < 1.5) { // Square-ish
+      return 'scale(1.5)';
+    } else { // Landscape
+      return 'scale(1.2)';
+    }
+  };
+
+  return (
+    <div className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-700
+                     ${isVisible ? 'opacity-10' : 'opacity-0'}`}>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
+      <div className="relative w-full h-full overflow-hidden">
+        <iframe 
+          src="https://www.youtube.com/embed/HEcclY4Pjk0?controls=0&autoplay=1&mute=1&loop=1&playlist=HEcclY4Pjk0&playsinline=1"
+          className="absolute w-full h-full object-cover"
+          style={{
+            position: 'absolute',
+            top: '50%',
+            left: '50%',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            transform: `translate(-50%, -50%) ${getScale()}`,
+            minWidth: '100vw',
+            minHeight: '100vh'
+          }}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        />
+      </div>
+    </div>
+  );
+};
+
 const Home = () => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [volume, setVolume] = useState(100);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
+  const [showVideo, setShowVideo] = useState(true);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-  const playerRef = useRef<any>(null);
-  const progressRef = useRef<HTMLDivElement>(null);
+  const lastScrollPosition = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setShowScrollIndicator(false);
-      } else {
-        setShowScrollIndicator(true);
-      }
+      const currentScroll = window.scrollY;
+      const scrollingDown = currentScroll > lastScrollPosition.current;
+      
+      // Hide video when scrolling down and past the hero section
+      setShowVideo(currentScroll < window.innerHeight * 0.5);
+      
+      // Hide scroll indicator
+      setShowScrollIndicator(currentScroll < 100);
+      
+      lastScrollPosition.current = currentScroll;
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -76,15 +136,7 @@ const Home = () => {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black overflow-hidden">
       {/* Background video */}
-      <div className="fixed inset-0 z-0 pointer-events-none opacity-5">
-        <div id="youtube-player" className="absolute w-full h-full scale-125">
-          <iframe 
-            src={`https://www.youtube.com/embed/HEcclY4Pjk0?controls=0&autoplay=1&mute=1&loop=1&playlist=HEcclY4Pjk0`}
-            className="absolute inset-0 w-full h-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          ></iframe>
-        </div>
-      </div>
+      <BackgroundVideo isVisible={showVideo} />
 
       {/* Main content */}
       <div className="relative z-10 container mx-auto px-4">
@@ -150,42 +202,10 @@ const Home = () => {
               />
             ))}
           </div>
+          <OurProducts/>
+          <IndustryApplications/>
         </div>
       </div>
-
-      <style jsx>{`
-        #youtube-player {
-          pointer-events: none;
-        }
-        
-        #youtube-player iframe {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
-        input[type=range] {
-          height: 4px;
-          background: rgba(255, 255, 255, 0.1);
-          border-radius: 2px;
-        }
-
-        input[type=range]::-webkit-slider-thumb {
-          height: 12px;
-          width: 12px;
-          border-radius: 50%;
-          background: #4CAF50;
-          cursor: pointer;
-        }
-        
-        input[type=range]::-moz-range-thumb {
-          height: 12px;
-          width: 12px;
-          border-radius: 50%;
-          background: #4CAF50;
-          cursor: pointer;
-        }
-      `}</style>
     </div>
   );
 };
