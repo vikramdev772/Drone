@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, User, Tag, Clock, ChevronRight, Search, Mail } from 'lucide-react';
-
+import b1 from "./images/B1.jpeg"
+import b2 from "./images/B2.jpeg"
+import b3 from "./images/B3.jpeg"
+import b4 from "./images/B4.jpeg"
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchFocused, setSearchFocused] = useState(false);
@@ -23,7 +26,7 @@ const Blog = () => {
       author: "Santhosh Kumar",
       date: "Feb 8, 2024",
       readTime: "5 min read",
-      image: "/api/placeholder/800/400"
+      image: b1
     },
     {
       id: 2,
@@ -33,7 +36,7 @@ const Blog = () => {
       author: "Naveen Kumar P",
       date: "Feb 7, 2024",
       readTime: "4 min read",
-      image: "/api/placeholder/800/400"
+      image:b2
     },
     {
       id: 3,
@@ -43,7 +46,7 @@ const Blog = () => {
       author: "G Sreeshman",
       date: "Feb 6, 2024",
       readTime: "6 min read",
-      image: "/api/placeholder/800/400"
+      image: b3
     },
     {
       id: 4,
@@ -53,7 +56,7 @@ const Blog = () => {
       author: "Tulsi Ram Y",
       date: "Feb 5, 2024",
       readTime: "4 min read",
-      image: "/api/placeholder/800/400"
+      image: b4
     }
   ];
 

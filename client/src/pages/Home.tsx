@@ -88,12 +88,7 @@ const VideoCard = ({
       >
         <h3 className="text-lg sm:text-xl font-semibold text-green-400 mb-2 sm:mb-3">{title}</h3>
         <p className="text-gray-300/90 text-sm sm:text-base leading-relaxed mb-4">{description}</p>
-        <button className="w-full group flex items-center justify-center px-4 py-2 rounded-md
-                        border border-white/10 hover:border-green-500/30 text-white
-                        hover:bg-white/10 transition-all duration-200">
-          Learn More 
-          <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </button>
+       
       </motion.div>
     </motion.div>
   );
