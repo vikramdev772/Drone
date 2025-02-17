@@ -230,18 +230,20 @@ const Home = () => {
     {
       title: "Smart Crop Monitoring",
       description: "Advanced drone technology for real-time crop health monitoring and analysis. Get detailed insights about your field's condition.",
-      videoUrl: "HEcclY4Pjk0"
+      videoUrl: "Lpf_EhOCLJs?rel=0&modestbranding=1"
     },
     {
       title: "Precision Agriculture",
       description: "Optimize resource usage with AI-powered precision farming solutions. Reduce costs while maximizing yield.",
-      videoUrl: "Pt6bAsQBL4o"
+      videoUrl: "Pt6bAsQBL4o?rel=0&modestbranding=1&controls=1"
     },
     {
       title: "Custom Solutions",
       description: "Tailored drone solutions designed to meet your specific agricultural needs. Full integration with existing systems.",
-      videoUrl: "HEcclY4Pjk0"
+      videoUrl: "PD490hxh_Zc?rel=0&modestbranding=1"
     }
+    ,
+   
   ];
 
   return (
