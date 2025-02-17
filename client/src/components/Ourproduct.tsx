@@ -63,17 +63,17 @@ const OurProducts = () => {
     {
       title: "AGRONE-X",
       description: "Revolutionary 10L capacity agricultural drone featuring industry-leading flight time. Engineered in India with advanced aerostructures, combining durability with lightweight design for optimal farming operations.",
-      image: "/api/placeholder/400/300"
+      image: "https://ariessol.com/wp-content/uploads/2024/01/Agrone.png"
     },
     {
       title: "JATAYU",
       description: "Advanced hexacopter engineered for industrial applications, capable of handling 500g-2kg payloads within a 5km range. Superior build quality and stability make it the cost-effective choice for modern industry needs.",
-      image: "/api/placeholder/400/300"
+      image: "https://ariessol.com/wp-content/uploads/2024/01/jatayu.png"
     },
     {
       title: "ROVER",
       description: "Next-gen unmanned ground vehicle with impressive 150kg payload capacity and 5-hour runtime. Versatile platform ideal for agricultural spraying, law enforcement, and warehouse automation.",
-      image: "/api/placeholder/400/300"
+      image: "https://ariessol.com/wp-content/uploads/2024/01/rovar.png"
     }
   ];
 

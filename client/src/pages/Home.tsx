@@ -68,7 +68,7 @@ const BackgroundVideo = ({ isVisible }: { isVisible: boolean }) => {
 
   return (
     <div className={`fixed inset-0 z-0 pointer-events-none transition-opacity duration-700
-                     ${isVisible ? 'opacity-10' : 'opacity-0'}`}>
+                     ${isVisible ? 'opacity-8' : 'opacity-0'}`}>
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50" />
       <div className="relative w-full h-full overflow-hidden">
         <iframe 

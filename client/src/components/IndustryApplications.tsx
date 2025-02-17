@@ -1,5 +1,6 @@
 import React from 'react';
-
+import d from "../assets/disaster.webp"
+import mine from "../assets/mining.webp"
 const ApplicationCard = ({ title, description, image }) => (
   <div className="group relative overflow-hidden">
     {/* Glass container */}
@@ -46,27 +47,27 @@ const IndustryApplications = () => {
     {
       title: "Smart Agriculture",
       description: "Advanced drone systems for precision farming, featuring real-time crop monitoring and automated spraying systems.",
-      image: "/api/placeholder/400/300"
+      image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "Disaster Response",
       description: "AI-powered emergency response solutions with thermal imaging and real-time situation assessment.",
-      image: "/api/placeholder/400/300"
+      image: d
     },
     {
       title: "Mining Operations",
       description: "Comprehensive 3D mapping and autonomous inspection for enhanced mining site safety and efficiency.",
-      image: "/api/placeholder/400/300"
+      image: mine
     },
     {
       title: "Solar Energy",
       description: "Automated thermal inspection and maintenance planning for optimal solar farm performance.",
-      image: "/api/placeholder/400/300"
+      image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&q=80&w=800"
     },
     {
       title: "Wind Power",
       description: "Intelligent turbine monitoring with predictive maintenance and performance optimization.",
-      image: "/api/placeholder/400/300"
+      image: "https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?auto=format&fit=crop&q=80&w=800"
     }
   ];
 
