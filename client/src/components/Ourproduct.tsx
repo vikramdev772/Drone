@@ -38,20 +38,7 @@ const ProductCard = ({ title, description, image }) => (
             {description}
           </p>
           
-          {/* Button */}
-          <button className="relative overflow-hidden group/btn px-6 py-3 rounded-xl 
-                           border border-green-500/30 bg-green-500/10
-                           transition-all duration-300">
-            {/* Button gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-green-600 opacity-0 
-                          group-hover/btn:opacity-100 transition-opacity duration-300" />
-            
-            {/* Button content */}
-            <span className="relative z-10 text-green-400 font-semibold 
-                           group-hover/btn:text-white transition-colors duration-300">
-              Explore Details
-            </span>
-          </button>
+         
         </div>
       </div>
     </div>
