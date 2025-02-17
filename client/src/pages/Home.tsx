@@ -235,7 +235,7 @@ const Home = () => {
     {
       title: "Precision Agriculture",
       description: "Optimize resource usage with AI-powered precision farming solutions. Reduce costs while maximizing yield.",
-      videoUrl: "HEcclY4Pjk0"
+      videoUrl: "Pt6bAsQBL4o"
     },
     {
       title: "Custom Solutions",

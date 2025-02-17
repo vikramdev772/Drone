@@ -93,28 +93,7 @@ const Header = () => {
         </nav>
 
         {/* Enhanced Search Button */}
-        <div className="hidden md:flex items-center gap-4">
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className={`flex items-center gap-2 px-4 py-2 rounded-full 
-                       ${searchFocused 
-                         ? 'bg-green-500/30 shadow-lg shadow-green-500/20' 
-                         : 'bg-green-500/20'} 
-                       hover:bg-green-500/30 text-white backdrop-blur-sm 
-                       transition-all duration-300`}
-          >
-            <Search className="w-4 h-4" />
-            <input
-              type="text"
-              placeholder="Search..."
-              className="bg-transparent outline-none w-24 focus:w-32 transition-all"
-              onFocus={() => setSearchFocused(true)}
-              onBlur={() => setSearchFocused(false)}
-            />
-          </motion.div>
-        </div>
-
+        
         {/* Mobile Menu Button */}
         <motion.button
           whileTap={{ scale: 0.95 }}
@@ -168,16 +147,7 @@ const Header = () => {
               transition={{ delay: navItems.length * 0.1 }}
               className="p-6"
             >
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  className="w-full px-4 py-2 pl-10 rounded-full bg-white/5 
-                           text-white placeholder-white/50 outline-none
-                           focus:bg-white/10 transition-all"
-                />
-                <Search className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-white/50" />
-              </div>
+              
             </motion.div>
           </motion.nav>
         )}
